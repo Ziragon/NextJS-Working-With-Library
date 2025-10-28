@@ -1,4 +1,4 @@
-import { Provider } from "@/components/provider";
+import { Provider } from "@/lib/chakraui/provider";
 
 export default function ChakraLayout({
                                          children,

@@ -13,19 +13,21 @@ interface User {
 }
 
 const initialRows: User[] = [
-    { id: 1, name: 'John Doe', email: 'john@example.com', roles: ['Admin', 'Editor'], status: true },
-    { id: 2, name: 'Jane Smith', email: 'jane@example.com', roles: ['User'], status: false },
+    { id: 1, name: 'Nikita Buyanov', email: 'почта@класс', roles: ['Admin', 'Editor'], status: true },
+    { id: 2, name: 'Алексей Шевцов', email: 'help@ya.ru', roles: ['User'], status: false },
+    { id: 3, name: 'помогите', email: 'help@ya.ru', roles: ['Admin', 'Editor'], status: true },
+    { id: 4, name: 'ааааааааа', email: 'help@ya.ru', roles: ['User', 'Editor'], status: false },
+    { id: 5, name: 'ааааааааа', email: 'help@ya.ru', roles: ['Admin', 'Editor'], status: true },
 ];
 
 const UserTable: React.FC = () => {
-    const [rows, setRows] = useState<User[]>(initialRows); // Состояние для rows
+    const [rows, setRows] = useState<User[]>(initialRows);
 
     const [rowSelectionModel, setRowSelectionModel] = useState<GridRowSelectionModel>({
         type: 'include',
         ids: new Set<GridRowId>(),
     });
 
-    // Переносим columns внутрь компонента, чтобы renderCell имел доступ к setRows
     const columns: GridColDef<User>[] = [
         { field: 'id', headerName: 'ID', width: 90, type: 'number' },
         { field: 'name', headerName: 'Имя', width: 150, type: 'string' },
@@ -57,17 +59,8 @@ const UserTable: React.FC = () => {
                 <Switch
                     checked={params.value ?? false}
                     onChange={(event) => {
-                        event.stopPropagation(); // Предотвращаем всплытие события
-                        const newStatus = event.target.checked;
-                        setRows(prevRows =>
-                            prevRows.map(row =>
-                                row.id === params.row.id ? { ...row, status: newStatus } : row
-                            )
-                        );
-                        console.log(`Статус для ID ${params.row.id} изменён на ${newStatus}`);
-                    }}
-                    onClick={(event) => {
-                        event.stopPropagation(); // Дополнительная защита
+                        event.stopPropagation();
+                        handleStatusChange(params.row.id, event.target.checked);
                     }}
                     size="small"
                 />
@@ -84,6 +77,14 @@ const UserTable: React.FC = () => {
         console.log('Клик по строке:', params.row);
     };
 
+    const handleStatusChange = (userId: number, newStatus: boolean) => {
+        setRows(prevRows =>
+            prevRows.map(row =>
+                row.id === userId ? { ...row, status: newStatus } : row
+            )
+        );
+    };
+
     return (
         <div style={{ height: 400, width: '100%' }}>
             <DataGrid
@@ -93,8 +94,7 @@ const UserTable: React.FC = () => {
                 rowSelectionModel={rowSelectionModel}
                 onRowSelectionModelChange={handleRowSelectionChange}
                 onRowClick={handleRowClick}
-                //disableRowSelectionOnClick={true}
-
+                disableRowSelectionOnClick={true}
             />
         </div>
     );

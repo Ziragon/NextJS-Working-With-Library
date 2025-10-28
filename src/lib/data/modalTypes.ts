@@ -1,4 +1,3 @@
-// lib/data/types.ts
 export type UserRole = 'admin' | 'user' | 'manager' | 'guest';
 
 export interface UserFormData {
@@ -13,4 +12,9 @@ export interface UserModalProps {
     onClose: () => void;
     onSubmit: (data: UserFormData) => void;
     isLoading?: boolean;
+}
+
+export interface Option {
+    label: string;
+    value: string;
 }

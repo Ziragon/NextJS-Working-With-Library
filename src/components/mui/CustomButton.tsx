@@ -8,20 +8,21 @@ interface CustomButtonProps extends Omit<ButtonProps, 'variant' | 'color'> {
     variant?: 'primary' | 'secondary' | 'danger';
     size?: 'small' | 'medium' | 'large';
     loading?: boolean;
+    loadingText?: string;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
                                                        variant = 'primary',
                                                        size = 'medium',
                                                        loading = false,
+                                                       loadingText = 'Loading',
                                                        disabled,
                                                        children,
                                                        ...props
                                                    }) => {
     const theme = useTheme();
 
-    const backgroundColor = theme.custom.buttonVariants[variant];
-    const textColor = variant === 'secondary' ? '#252525' : '#ffffff';
+    const backgroundColor = theme.custom.buttonVariants[variant] || theme.custom.buttonVariants.primary;
 
     return (
         <Button
@@ -34,7 +35,9 @@ const CustomButton: React.FC<CustomButtonProps> = ({
                 backgroundColor,
                 color: '#ffffff',
                 '&:hover': {
-                    backgroundColor: `${backgroundColor}E6`,
+                    backgroundColor: theme.palette.augmentColor({
+                        color: { main: backgroundColor },
+                    }).dark,
                 },
                 '&:disabled': {
                     backgroundColor: '#455A64',
@@ -46,7 +49,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
             {loading ? (
                 <>
                     <CircularProgress size={20} color="inherit" sx={{ mr: 1 }} />
-                    Loading...
+                    {loadingText}
                 </>
             ) : (
                 children

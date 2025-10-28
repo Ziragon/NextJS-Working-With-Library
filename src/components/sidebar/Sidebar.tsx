@@ -21,17 +21,23 @@ const Sidebar = () => {
                         >
                             Buttons/Table
                         </NextLink>
-                        <NextLink
-                            href="/dashboard"
-                            className={`${styles.link} ${pathname === '/dashboard' ? styles.active : ''}`}
-                        >
-                            Dashboard
-                        </NextLink>
+                    </div>
+                </div>
+
+                <div className={styles.section}>
+                    <h2 className={styles.sectionTitle}>Ant Design</h2>
+                    <div className={styles.links}>
                         <NextLink
                             href="/form"
                             className={`${styles.link} ${pathname === '/form' ? styles.active : ''}`}
                         >
                             Form
+                        </NextLink>
+                        <NextLink
+                            href="/dashboard"
+                            className={`${styles.link} ${pathname === '/dashboard' ? styles.active : ''}`}
+                        >
+                            Dashboard
                         </NextLink>
                     </div>
                 </div>

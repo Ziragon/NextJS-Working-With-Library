@@ -1,4 +1,3 @@
-// components/radix/Dialog.tsx
 'use client'
 
 import * as React from "react"
@@ -50,10 +49,10 @@ const DialogContent = React.forwardRef<
             {...props}
         >
             {children}
-            <DialogPrimitive.Close className="absolute right-4 top-4">
-                <button className="p-2 hover:bg-neutral-700 rounded-md text-neutral-300 hover:text-white transition-colors">
-                    ✕
-                </button>
+            <DialogPrimitive.Close
+                className="absolute right-4 top-4 p-2 hover:bg-neutral-700 rounded-md text-neutral-300 hover:text-white transition-colors"
+            >
+                ✕
             </DialogPrimitive.Close>
         </DialogPrimitive.Content>
     </DialogPortal>

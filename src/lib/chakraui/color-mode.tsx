@@ -1,4 +1,3 @@
-// components/color-mode.tsx
 "use client"
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react"
@@ -33,7 +32,6 @@ export function ColorModeProvider({
     const [colorMode, setColorModeState] = useState<ColorMode>(defaultMode)
     const [mounted, setMounted] = useState(false)
 
-    // Эффект для синхронизации с localStorage после монтирования
     useEffect(() => {
         setMounted(true)
         const storedMode = localStorage.getItem("colorMode") as ColorMode | null
@@ -47,7 +45,6 @@ export function ColorModeProvider({
         }
     }, [])
 
-    // Эффект для применения класса к body при изменении colorMode
     useEffect(() => {
         if (mounted) {
             const body = document.body

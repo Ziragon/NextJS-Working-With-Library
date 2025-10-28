@@ -1,37 +1,12 @@
-// components/Dashboard.tsx
 "use client";
 
 import React from 'react';
 import { Card, Row, Col, Statistic } from 'antd';
 import { Line, Pie, Column } from '@ant-design/charts';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
+import { LineChartData, PieChartData, ColumnChartData, StatCardData } from '@/lib/data/dashboardTypes';
 
-// Типы данных для графиков
-interface LineChartData {
-    date: string;
-    value: number;
-    category: string;
-}
-
-interface PieChartData {
-    type: string;
-    value: number;
-}
-
-interface ColumnChartData {
-    month: string;
-    value: number;
-}
-
-interface StatCardData {
-    title: string;
-    value: number;
-    change: number;
-    icon: React.ReactNode;
-}
-
-// Моковые данные для демонстрации
-const lineChartData: LineChartData[] = [
+export const lineChartData: LineChartData[] = [
     { date: '2023-01', value: 100, category: 'Продажи' },
     { date: '2023-02', value: 120, category: 'Продажи' },
     { date: '2023-03', value: 150, category: 'Продажи' },
@@ -46,7 +21,7 @@ const lineChartData: LineChartData[] = [
     { date: '2023-06', value: 120, category: 'Посещения' },
 ];
 
-const pieChartData: PieChartData[] = [
+export const pieChartData: PieChartData[] = [
     { type: 'Технологии', value: 35 },
     { type: 'Финансы', value: 25 },
     { type: 'Здравоохранение', value: 20 },
@@ -54,7 +29,7 @@ const pieChartData: PieChartData[] = [
     { type: 'Другое', value: 5 },
 ];
 
-const columnChartData: ColumnChartData[] = [
+export const columnChartData: ColumnChartData[] = [
     { month: 'Янв', value: 30 },
     { month: 'Фев', value: 40 },
     { month: 'Мар', value: 35 },
@@ -63,14 +38,13 @@ const columnChartData: ColumnChartData[] = [
     { month: 'Июн', value: 60 },
 ];
 
-const statCardData: StatCardData[] = [
+export const statCardData: StatCardData[] = [
     { title: 'Общие продажи', value: 12340, change: 12.5, icon: <ArrowUpOutlined /> },
     { title: 'Новые пользователи', value: 2456, change: 8.2, icon: <ArrowUpOutlined /> },
     { title: 'Отказы', value: 3.2, change: -2.1, icon: <ArrowDownOutlined /> },
     { title: 'Конверсия', value: 4.8, change: 1.7, icon: <ArrowUpOutlined /> },
 ];
 
-// Компонент статистической карточки с заголовком
 const StatCard: React.FC<{ data: StatCardData }> = ({ data }) => {
     const { title, value, change, icon } = data;
     const isPositive = change >= 0;
@@ -105,7 +79,6 @@ const StatCard: React.FC<{ data: StatCardData }> = ({ data }) => {
     );
 };
 
-// Конфигурации графиков с темной темой
 const lineConfig = {
     data: lineChartData,
     xField: 'date',
@@ -174,13 +147,11 @@ const lineConfig = {
     },
 };
 
-// Конфигурация круговой диаграммы без подписей значений
 const pieConfig = {
     data: pieChartData,
     angleField: 'value',
     colorField: 'type',
     radius: 0.8,
-    // Убираем подписи значений с секторов диаграммы
     label: false,
     interactions: [{ type: 'element-active' as const }],
     legend: {
@@ -199,13 +170,7 @@ const columnConfig = {
     xField: 'month',
     yField: 'value',
     columnWidthRatio: 0.6,
-    label: {
-        position: 'top' as const,
-        style: {
-            fill: '#FFFFFF',
-            opacity: 0.8,
-        },
-    },
+    label: false,
     xAxis: {
         line: {
             style: {
@@ -261,7 +226,6 @@ const columnConfig = {
 const Dashboard: React.FC = () => {
     return (
         <>
-            {/* Статистические карточки с заголовками */}
             <Row gutter={[16, 16]} style={{ marginBottom: '20px' }}>
                 {statCardData.map((stat, index) => (
                     <Col xs={24} sm={12} md={6} key={index}>
@@ -270,9 +234,7 @@ const Dashboard: React.FC = () => {
                 ))}
             </Row>
 
-            {/* Графики с заголовками карточек */}
             <Row gutter={[16, 16]}>
-                {/* Линейный график */}
                 <Col xs={24} lg={16}>
                     <Card
                         title="Динамика показателей"
@@ -295,7 +257,6 @@ const Dashboard: React.FC = () => {
                     </Card>
                 </Col>
 
-                {/* Круговой график */}
                 <Col xs={24} lg={8}>
                     <Card
                         title="Распределение по категориям"
@@ -318,7 +279,6 @@ const Dashboard: React.FC = () => {
                     </Card>
                 </Col>
 
-                {/* Столбчатый график */}
                 <Col xs={24}>
                     <Card
                         title="Ежемесячные показатели"

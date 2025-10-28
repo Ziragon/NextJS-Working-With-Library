@@ -9,6 +9,7 @@ declare module '@mui/material/styles' {
                 primary: string;
                 secondary: string;
                 danger: string;
+                [key: string]: string;
             };
         };
     }

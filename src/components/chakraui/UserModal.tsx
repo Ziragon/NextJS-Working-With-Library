@@ -1,19 +1,14 @@
-// components/UserModal.tsx
 'use client';
 
 import { useEffect } from 'react';
 import { Dialog, Select, Button, HStack, Input, IconButton, Field } from '@chakra-ui/react';
+import { useColorModeValue } from "@/hooks/useColorModeValue";
 import { X } from 'lucide-react';
 import { createListCollection } from '@ark-ui/react';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { UserFormData, UserRole, UserModalProps } from '@/lib/data/types';
-
-interface Option {
-    label: string;
-    value: string;
-}
+import { UserFormData, UserRole, UserModalProps, Option } from '@/lib/data/modalTypes';
 
 const roleOptions: readonly Option[] = [
     { label: 'Администратор', value: 'admin' },
@@ -24,7 +19,6 @@ const roleOptions: readonly Option[] = [
 
 const roleCollection = createListCollection({ items: roleOptions });
 
-// Схема валидации
 const userSchema = yup.object<UserFormData>().shape({
     name: yup.string()
         .required('Имя обязательно для заполнения')
@@ -65,8 +59,16 @@ const UserModal: React.FC<UserModalProps> = ({
 
     const handleFormSubmit: SubmitHandler<UserFormData> = (data) => {
         onSubmit(data);
-        reset();
     };
+
+    const bgColor = useColorModeValue('white', 'gray.800');
+    const textColor = useColorModeValue('gray.800', 'white');
+    const inputBg = useColorModeValue('gray.50', 'gray.700');
+    const borderColor = useColorModeValue('gray.200', 'gray.700');
+    const hoverBg = useColorModeValue('gray.100', 'gray.600');
+    const selectBg = useColorModeValue('white', 'gray.700');
+    const selectContentBg = useColorModeValue('white', 'gray.700');
+    const backdropBg = useColorModeValue('blackAlpha.200', 'blackAlpha.300');
 
     return (
         <Dialog.Root
@@ -81,14 +83,17 @@ const UserModal: React.FC<UserModalProps> = ({
             closeOnInteractOutside
             closeOnEscape
         >
-            <Dialog.Backdrop bg="blackAlpha.300" backdropFilter="blur(5px)" />
+            <Dialog.Backdrop bg={backdropBg} backdropFilter="blur(5px)" />
             <Dialog.Positioner>
                 <Dialog.Content
-                    bg="gray.800"
-                    color="white"
+                    bg={bgColor}
+                    color={textColor}
                     maxW="md"
                     p={6}
                     borderRadius="md"
+                    borderWidth={1}
+                    borderColor={borderColor}
+                    boxShadow="lg"
                 >
                     <Dialog.Header fontSize="xl" fontWeight="bold">
                         <Dialog.Title>Добавление нового пользователя</Dialog.Title>
@@ -100,6 +105,7 @@ const UserModal: React.FC<UserModalProps> = ({
                             position="absolute"
                             top="2"
                             right="4"
+                            color={textColor}
                         >
                             <X />
                         </IconButton>
@@ -115,14 +121,14 @@ const UserModal: React.FC<UserModalProps> = ({
                                         <Input
                                             {...field}
                                             placeholder="Введите имя"
-                                            bg="gray.700"
-                                            border="none"
-                                            _focus={{ borderColor: 'blue.500' }}
+                                            bg={inputBg}
+                                            borderColor={borderColor}
+                                            _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--colors-brand-500)' }}
                                             p={3}
                                         />
                                     )}
                                 />
-                                <Field.ErrorText>{errors.name?.message}</Field.ErrorText>
+                                <Field.ErrorText color="error.500">{errors.name?.message}</Field.ErrorText>
                             </Field.Root>
 
                             <Field.Root invalid={!!errors.email} mb={4}>
@@ -135,14 +141,14 @@ const UserModal: React.FC<UserModalProps> = ({
                                             {...field}
                                             placeholder="user@example.com"
                                             type="email"
-                                            bg="gray.700"
-                                            border="none"
-                                            _focus={{ borderColor: 'blue.500' }}
+                                            bg={inputBg}
+                                            borderColor={borderColor}
+                                            _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--colors-brand-500)' }}
                                             p={3}
                                         />
                                     )}
                                 />
-                                <Field.ErrorText>{errors.email?.message}</Field.ErrorText>
+                                <Field.ErrorText color="error.500">{errors.email?.message}</Field.ErrorText>
                             </Field.Root>
 
                             <Field.Root invalid={!!errors.role} mb={4}>
@@ -161,22 +167,25 @@ const UserModal: React.FC<UserModalProps> = ({
                                         >
                                             <Select.HiddenSelect />
                                             <Select.Control
-                                                bg="gray.700"
+                                                bg={selectBg}
+                                                borderColor={borderColor}
                                                 borderRadius="md"
+                                                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--colors-brand-500)' }}
                                             >
                                                 <Select.Trigger>
-                                                    <Select.ValueText placeholder="Выберите роль" p={3}/>
+                                                    <Select.ValueText placeholder="Выберите роль" p={3} color={textColor} />
                                                 </Select.Trigger>
                                                 <Select.IndicatorGroup>
-                                                    <Select.Indicator />
+                                                    <Select.Indicator color={textColor} />
                                                 </Select.IndicatorGroup>
                                             </Select.Control>
                                             <Select.Positioner>
                                                 <Select.Content
-                                                    bg="gray.700"
-                                                    border="none"
+                                                    bg={selectContentBg}
+                                                    borderColor={borderColor}
                                                     p={1}
                                                     borderRadius="md"
+                                                    boxShadow="md"
                                                 >
                                                     {roleOptions.map((option) => (
                                                         <Select.Item
@@ -185,10 +194,11 @@ const UserModal: React.FC<UserModalProps> = ({
                                                             p={3}
                                                             mb={1}
                                                             borderRadius="sm"
-                                                            _hover={{ bg: "gray.600" }}
+                                                            _hover={{ bg: hoverBg }}
+                                                            color={textColor}
                                                         >
                                                             <Select.ItemText>{option.label}</Select.ItemText>
-                                                            <Select.ItemIndicator />
+                                                            <Select.ItemIndicator color="brand.500" />
                                                         </Select.Item>
                                                     ))}
                                                 </Select.Content>
@@ -196,7 +206,7 @@ const UserModal: React.FC<UserModalProps> = ({
                                         </Select.Root>
                                     )}
                                 />
-                                <Field.ErrorText>{errors.role?.message}</Field.ErrorText>
+                                <Field.ErrorText color="error.500">{errors.role?.message}</Field.ErrorText>
                             </Field.Root>
 
                             <Field.Root invalid={!!errors.department} mb={4}>
@@ -208,14 +218,14 @@ const UserModal: React.FC<UserModalProps> = ({
                                         <Input
                                             {...field}
                                             placeholder="Введите название отдела"
-                                            bg="gray.700"
-                                            border="none"
-                                            _focus={{ borderColor: 'blue.500' }}
+                                            bg={inputBg}
+                                            borderColor={borderColor}
+                                            _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--colors-brand-500)' }}
                                             p={3}
                                         />
                                     )}
                                 />
-                                <Field.ErrorText>{errors.department?.message}</Field.ErrorText>
+                                <Field.ErrorText color="error.500">{errors.department?.message}</Field.ErrorText>
                             </Field.Root>
                         </form>
                     </Dialog.Body>
@@ -223,9 +233,11 @@ const UserModal: React.FC<UserModalProps> = ({
                     <Dialog.Footer>
                         <HStack gap={3}>
                             <Button
-                                bg="gray.600"
-                                color="white"
-                                _hover={{ bg: "gray.500" }}
+                                bg={useColorModeValue('gray.200', 'gray.600')}
+                                color={useColorModeValue('gray.800', 'white')}
+                                _hover={{
+                                    bg: useColorModeValue('gray.300', 'gray.500')
+                                }}
                                 onClick={onClose}
                                 disabled={isLoading}
                                 px={4}
@@ -239,9 +251,11 @@ const UserModal: React.FC<UserModalProps> = ({
                             <Button
                                 type="submit"
                                 form="user-form"
-                                bg="blue.600"
-                                color="white"
-                                _hover={{ bg: "blue.500" }}
+                                bg={useColorModeValue('gray.900', 'white')}
+                                color={useColorModeValue('white', 'gray.900')}
+                                _hover={{
+                                    bg: useColorModeValue('gray.800', 'gray.100')
+                                }}
                                 loading={isLoading}
                                 loadingText="Сохранение..."
                                 px={4}

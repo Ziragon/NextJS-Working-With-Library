@@ -1,42 +1,10 @@
-// components/ProjectForm.tsx
 "use client";
 
 import React from 'react';
 import { Form, Input, Select, DatePicker, InputNumber } from 'antd';
-import { FormInstance } from 'antd/lib/form';
 import dayjs, { Dayjs } from 'dayjs';
-import CustomButton from "./CustomButton";
-
-// Интерфейс для данных формы
-interface ProjectFormValues {
-    title: string;
-    description: string;
-    priority: string;
-    categories: string[];
-    deadline: Dayjs | null;
-    budget: number;
-}
-
-// Опции для приоритета
-const priorityOptions = [
-    { value: 'low', label: 'Низкий' },
-    { value: 'medium', label: 'Средний' },
-    { value: 'high', label: 'Высокий' },
-];
-
-// Опции для категорий
-const categoryOptions = [
-    { value: 'development', label: 'Разработка' },
-    { value: 'design', label: 'Дизайн' },
-    { value: 'marketing', label: 'Маркетинг' },
-    { value: 'other', label: 'Другое' },
-];
-
-interface ProjectFormProps {
-    onFinish: (values: ProjectFormValues) => Promise<void>;
-    loading: boolean;
-    form: FormInstance<ProjectFormValues>;
-}
+import CustomButton from "../mui/CustomButton";
+import { priorityOptions, ProjectFormProps, categoryOptions } from "@/lib/data/formOptions";
 
 const ProjectForm: React.FC<ProjectFormProps> = ({ onFinish, loading, form }) => {
     return (
@@ -58,19 +26,17 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onFinish, loading, form }) =>
                 <Input placeholder="Введите название" />
             </Form.Item>
 
-            {/* Описание */}
             <Form.Item
                 name="description"
                 label="Описание"
                 rules={[
                     { required: true, message: 'Введите описание!' },
-                    { max: 500, message: 'Описание не должно превышать 500 символов!' },
+                    { max: 100, message: 'Описание не должно превышать 100 символов!' },
                 ]}
             >
                 <Input.TextArea rows={4} placeholder="Введите описание" />
             </Form.Item>
 
-            {/* Приоритет */}
             <Form.Item
                 name="priority"
                 label="Приоритет"
@@ -79,7 +45,6 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onFinish, loading, form }) =>
                 <Select options={priorityOptions} placeholder="Выберите приоритет" />
             </Form.Item>
 
-            {/* Категории */}
             <Form.Item
                 name="categories"
                 label="Категории"
@@ -88,7 +53,6 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onFinish, loading, form }) =>
                 <Select mode="multiple" options={categoryOptions} placeholder="Выберите категории" />
             </Form.Item>
 
-            {/* Дедлайн */}
             <Form.Item
                 name="deadline"
                 label="Дедлайн"
@@ -104,10 +68,15 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onFinish, loading, form }) =>
                     },
                 ]}
             >
-                <DatePicker style={{ width: '100%' }} placeholder="Выберите дату" />
+                <DatePicker
+                    style={{ width: '100%' }}
+                    placeholder="Выберите дату"
+                    disabledDate={(current) => {
+                        return current && current < dayjs().startOf('day');
+                    }}
+                />
             </Form.Item>
 
-            {/* Бюджет */}
             <Form.Item
                 name="budget"
                 label="Бюджет"
@@ -123,16 +92,15 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onFinish, loading, form }) =>
                 <InputNumber style={{ width: '100%' }} placeholder="Введите бюджет" />
             </Form.Item>
 
-            {/* Кнопка отправки */}
             <Form.Item>
                 <CustomButton
                     type="submit"
                     variant="primary"
                     loading={loading}
-                    disabled={loading}
+                    loadingText={'Создание проекта...'}
                     style={{ width: '100%' }}
                 >
-                    {loading ? 'Создание проекта...' : 'Создать проект'}
+                    Создать проект
                 </CustomButton>
             </Form.Item>
         </Form>

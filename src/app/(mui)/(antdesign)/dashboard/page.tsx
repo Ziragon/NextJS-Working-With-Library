@@ -1,9 +1,8 @@
-// app/dashboard/page.tsx
 "use client";
 
 import React from 'react';
 import { ConfigProvider, theme } from 'antd';
-import Dashboard from '@/components/Dashboard';
+import Dashboard from '@/components/antdesign/Dashboard';
 
 const DashboardPage: React.FC = () => {
     return (
@@ -12,7 +11,6 @@ const DashboardPage: React.FC = () => {
                 algorithm: theme.darkAlgorithm,
                 token: {
                     colorPrimary: '#177ddc',
-                    colorBgContainer: '#1f1f1f',
                     colorBorderSecondary: '#303030',
                     colorText: '#ffffff',
                     colorTextSecondary: '#bfbfbf',
@@ -22,16 +20,11 @@ const DashboardPage: React.FC = () => {
                         colorBgContainer: '#1f1f1f',
                         colorBorderSecondary: '#303030',
                     },
-                    Statistic: {
-                        contentColor: '#ffffff',
-                    },
                 },
             }}
         >
             <div
                 style={{
-                    padding: '20px',
-                    backgroundColor: '#141414',
                     minHeight: '100vh',
                     color: '#ffffff'
                 }}

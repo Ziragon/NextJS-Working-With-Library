@@ -1,6 +1,7 @@
 'use client';
-import CustomButton from "@/components/CustomButton";
-import UserTable from "@/components/UserTable";
+
+import CustomButton from "@/components/mui/CustomButton";
+import UserTable from "@/components/mui/UserTable";
 import { useState } from 'react';
 
 export default function Home() {
@@ -19,12 +20,12 @@ export default function Home() {
         <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen">
             <main className="flex flex-col gap-[32px] row-start-2 items-center">
                 <div className="flex flex-row gap-8 items-center sm:items-start">
-                    <CustomButton variant="primary" size="large" >Primary</CustomButton>
-                    <CustomButton variant="secondary">Secondary</CustomButton>
-                    <CustomButton variant="danger" loading={isLoading} onClick={handleClick}>
-                        Click Me
+                    <CustomButton variant="primary" size="large" >Кнопка</CustomButton>
+                    <CustomButton variant="secondary">Друге кнопка</CustomButton>
+                    <CustomButton variant="danger" loading={isLoading} onClick={handleClick} loadingText={"Никита лучший"}>
+                        Клик
                     </CustomButton>
-                    <CustomButton disabled>Disabled</CustomButton>
+                    <CustomButton disabled>Запрещено</CustomButton>
                 </div>
                 <UserTable />
             </main>

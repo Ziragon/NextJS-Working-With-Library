@@ -7,7 +7,7 @@ import {
     ColorModeProvider,
     type ColorModeProviderProps,
 } from "./color-mode"
-import { GlobalStyles } from "./GlobalStyles"
+import { GlobalStyles } from "../../components/chakraui/GlobalStyles"
 
 export function Provider(props: ColorModeProviderProps) {
     return (

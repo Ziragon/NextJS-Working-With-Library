@@ -1,4 +1,3 @@
-// app/radix-demo/page.tsx
 'use client'
 
 import { DialogComponent } from "@/components/radix/Dialog"
@@ -8,10 +7,7 @@ export default function RadixDemoPage() {
     return (
         <div className="min-h-screen">
             <div className="container">
-                <h1 className="text-3xl font-bold mb-8 text-white">Radix UI + Tailwind CSS Demo</h1>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Карточка с диалогом */}
                     <div className="bg-neutral-800 p-6 rounded-lg shadow-lg">
                         <h2 className="text-xl font-semibold mb-4 text-white">Dialog Component</h2>
                         <DialogComponent
@@ -29,7 +25,7 @@ export default function RadixDemoPage() {
                                     <input
                                         type="text"
                                         className="w-full p-2 border border-neutral-600 rounded-md bg-neutral-700 text-white"
-                                        defaultValue="Иван Иванов"
+                                        defaultValue="Герман Пырцак"
                                     />
                                 </div>
                                 <div>
@@ -37,14 +33,13 @@ export default function RadixDemoPage() {
                                     <input
                                         type="email"
                                         className="w-full p-2 border border-neutral-600 rounded-md bg-neutral-700 text-white"
-                                        defaultValue="ivan@example.com"
+                                        defaultValue="yakrutoy@email"
                                     />
                                 </div>
                             </div>
                         </DialogComponent>
                     </div>
 
-                    {/* Карточка с выпадающим меню */}
                     <div className="bg-neutral-800 p-6 rounded-lg shadow-lg">
                         <h2 className="text-xl font-semibold mb-4 text-white">Dropdown Menu</h2>
                         <Dropdown

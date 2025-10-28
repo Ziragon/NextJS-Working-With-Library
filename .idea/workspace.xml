@@ -5,40 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02e4acd3-33b1-4c0b-92d1-88bd32e68bfb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/(chakra)/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(chakra)/modal/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(mui)/buttons/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(mui)/dashboard/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(mui)/form/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(mui)/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(radix)/dialog/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(radix)/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(radix)/tabs/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dashboard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GlobalStyles.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ProjectForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/RadixDialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Sidebar.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UserModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/radix/Dropdown.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/radix/Tabs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useColorModeValue.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useModal.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/data/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/system.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tailwind.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/data/dashboardTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/data/formOptions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/data/tabTypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(chakra)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(chakra)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(chakra)/modal/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(chakra)/modal/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(mui)/buttons/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(mui)/buttons/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(mui)/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(mui)/(antdesign)/dashboard/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(mui)/form/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(mui)/(antdesign)/form/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(radix)/dialog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(radix)/dialog/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CustomButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CustomButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CustomButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mui/CustomButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/antdesign/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GlobalStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chakraui/GlobalStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProjectForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/antdesign/ProjectForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RadixDialog.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/Sidebar.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chakraui/ThemeToggle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chakraui/UserModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mui/UserTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/color-mode.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/chakraui/color-mode.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/chakraui/provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/radix/Dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/radix/Dialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/radix/Dropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/radix/Dropdown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/radix/Tabs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/radix/Tabs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toaster.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/chakraui/toaster.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tooltip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/chakraui/tooltip.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useColorModeValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useColorModeValue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useModal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useModal.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/data/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/data/modalTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/system.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/system.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tailwind.config.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +65,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -82,9 +81,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\Working Learning\TS\lab5\lab5\src\app\(chakra)" />
-      <recent name="C:\Users\Administrator\Desktop\Working Learning\TS\lab5\lab5\src\app\(mui)" />
-      <recent name="C:\Users\Administrator\Desktop\Working Learning\TS\lab5\lab5\src\components" />
+      <recent name="C:\Users\Administrator\Desktop\Working Learning\TS\lab5\lab5\src\app\(mui)\(antdesign)" />
+      <recent name="C:\Users\Administrator\Desktop\Working Learning\TS\lab5\lab5\src\components\antdesign" />
+      <recent name="C:\Users\Administrator\Desktop\Working Learning\TS\lab5\lab5\src\lib\chakraui" />
+      <recent name="C:\Users\Administrator\Desktop\Working Learning\TS\lab5\lab5\src\components\chakraui" />
+      <recent name="C:\Users\Administrator\Desktop\Working Learning\TS\lab5\lab5\src\components\sidebar" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
@@ -124,7 +125,8 @@
       <workItem from="1761066056072" duration="121000" />
       <workItem from="1761546983317" duration="3791000" />
       <workItem from="1761630853639" duration="6907000" />
-      <workItem from="1761639995570" duration="8652000" />
+      <workItem from="1761639995570" duration="8961000" />
+      <workItem from="1761665346691" duration="10040000" />
     </task>
     <servers />
   </component>

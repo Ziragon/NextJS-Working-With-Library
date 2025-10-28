@@ -1,6 +1,5 @@
-// components/GlobalStyles.tsx
 import { useEffect } from "react"
-import { useColorMode } from "./color-mode"
+import { useColorMode } from "@/lib/chakraui/color-mode"
 
 export function GlobalStyles() {
     const { colorMode } = useColorMode()

@@ -39,9 +39,9 @@
 }
 
 .link:hover {
-    background-color: #1fb583;
+    background-color: #19805b;
 }
 
 .active {
-    background-color: #19805b;
+    background-color: #1fb583;
 }
