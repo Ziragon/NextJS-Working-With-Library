@@ -21,7 +21,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     const theme = useTheme();
 
     const backgroundColor = theme.custom.buttonVariants[variant];
-    const textColor = variant === 'secondary' ? '#112b4a' : '#ffffff';
+    const textColor = variant === 'secondary' ? '#252525' : '#ffffff';
 
     return (
         <Button

@@ -93,7 +93,8 @@ const UserTable: React.FC = () => {
                 rowSelectionModel={rowSelectionModel}
                 onRowSelectionModelChange={handleRowSelectionChange}
                 onRowClick={handleRowClick}
-                disableRowSelectionOnClick={true} // Избегаем конфликтов с кликами
+                //disableRowSelectionOnClick={true}
+
             />
         </div>
     );
